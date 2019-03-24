@@ -4,12 +4,26 @@ import "fmt"
 
 func main() {
 
-    slice1 := []int{1,2,3}
-    slice2 := append(slice1, 4, 5)
-    fmt.Println(slice1, slice2)
-    slice3 := []int{5,6,7}
-    slice4 := make([]int, 5)
-    copy(slice4, slice3)
-    fmt.Println(slice3, slice4)
+    // Runtime Error: map should be intialized before
+    // var x map[string]int
+    // x["key"] = 10
+    // fmt.Println(x)
+
+    x := make(map[string]int)
+    x["key"] = 10
+    fmt.Println(x["key"])
+    fmt.Println(x)
+    delete(x, "key")
+    fmt.Println(x)
+    // returns 0, false for undefined keys (false is flag to know wether it was successful or not)
+    name, ok := x["Un"]
+    fmt.Println(name, ok)
+
+    if name, ok := x["s"]; ok {
+        fmt.Println(name, ok)
+      }
+      
+      
+
 
 }
